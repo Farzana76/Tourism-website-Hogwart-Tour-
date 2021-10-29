@@ -9,6 +9,7 @@ import Login from './Components/Login/Login';
 import NotFound from './Components/NotFound/NotFound';
 import AuthProvider from './context/AuthProvider';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute.js';
+import AddServices from './Components/AddServices/AddServices';
 // import Coaches from './Components/Coaches/Coaches';
 // import Recipes from './Components/Recipes/Recipes';
 
@@ -34,6 +35,9 @@ function App() {
             <PrivateRoute path="/recipes">
               <Recipes></Recipes>
             </PrivateRoute> */}
+            <Route path="/addService">
+              <AddServices></AddServices>
+            </Route>
             <Route path="/register">
               <Register></Register>
             </Route>
