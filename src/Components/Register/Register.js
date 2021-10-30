@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
+// import { useHistory } from 'react-router';
 import '../Login/Login.css';
 
 const Register = () => {
@@ -38,12 +39,12 @@ const Register = () => {
                 id=""
                 placeholder="Password"
                 />
-                <input
-                onClick={userRegistration}
-                className="btn btn-primary text-light heading btn-lg"
-                type="submit"
-                value="Register"
-                />
+                <Link to="/login">
+                <button
+                    onClick={userRegistration}
+                    className="btn btn-primary text-light heading btn">Register
+                </button>
+                </Link>
             </form>
             <p className="mt-3">
                 Already registered? <Link to="/login">Log in</Link> here{" "}

@@ -78,6 +78,7 @@ const useFirebase = () => {
             console.log(user);
             verifyEmail();
             setError('');
+            alert("Registration Successful!");
         })
         .catch((error) => {
             setError(error.message);

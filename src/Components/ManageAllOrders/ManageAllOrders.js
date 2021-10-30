@@ -1,3 +1,4 @@
+import { reload } from '@firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
 
@@ -8,7 +9,7 @@ const ManageAllOrders = () => {
         fetch('https://dry-fjord-84495.herokuapp.com/orders')
         .then(res => res.json())
         .then(data => setOrd(data));
-    }, [])
+    }, [ord])
 
     // DELETE a order
     const handleDeleteUser = id => {
@@ -27,6 +28,24 @@ const ManageAllOrders = () => {
                     }
                 });
         }
+    }
+
+    // Update pending
+    const handleUpdateUser = id => {
+        const url = `https://dry-fjord-84495.herokuapp.com/orders/${id}`;
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(ord)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    alert('Approval Successful');
+                }
+            })
     }
 
     return (
@@ -59,7 +78,11 @@ const ManageAllOrders = () => {
                                     <td>{o.city}</td>
                                     <td>{o.event}</td>
                                     <td>{o.status}</td>
-                                    <td><button className="btn btn-primary">Approve</button></td>
+                                    <td>{
+                                        o.status === 'Approved' ?
+                                        <button className="btn btn-secondary" disabled>Approve</button>
+                                        :
+                                        <button onClick={() => handleUpdateUser(o._id)} className="btn btn-primary">Approve</button>}</td>
                                     <td><button onClick={() => handleDeleteUser(o._id)} className="btn btn-danger">Delete</button></td>
                                     </tr>
                                 </tbody>  

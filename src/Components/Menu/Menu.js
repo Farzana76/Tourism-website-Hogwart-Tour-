@@ -34,10 +34,13 @@ const Menu = () => {
                     <NavLink to="/recipes" className="items">
                     <li>Diet Recipes</li>
                     </NavLink>
-                    <NavLink to="/register" className="items">
-                    <li>Register</li>
-                    </NavLink>
-                    {user.email && <span className="item1 text-muted">Logged in {user.displayName} </span>}
+                    {user.email ? 
+                        <span className="item1 text-muted">Logged in {user.displayName} </span>
+                        :
+                        <NavLink to="/register" className="items">
+                        <li>Register</li>
+                        </NavLink>
+                    }
                     {
                     user.email ?
                         // <button onClick={logOut} className="btn btn-outline-light">Log out</button>
