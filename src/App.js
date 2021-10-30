@@ -10,6 +10,8 @@ import NotFound from './Components/NotFound/NotFound';
 import AuthProvider from './context/AuthProvider';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute.js';
 import AddServices from './Components/AddServices/AddServices';
+import MyOrders from './Components/MyOrders/MyOrders';
+import ManageAllOrders from './Components/ManageAllOrders/ManageAllOrders';
 // import Coaches from './Components/Coaches/Coaches';
 // import Recipes from './Components/Recipes/Recipes';
 
@@ -26,7 +28,7 @@ function App() {
             <Route path="/home">
               <Home></Home>
             </Route>
-            <PrivateRoute path="/service/:sid">
+            <PrivateRoute path="/service/:sid&&:title">
               <PlaceOrder></PlaceOrder>
             </PrivateRoute>
             {/* <PrivateRoute path="/service/:sid">
@@ -38,9 +40,15 @@ function App() {
             <PrivateRoute path="/recipes">
               <Recipes></Recipes>
             </PrivateRoute> */}
-            <Route path="/addService">
+            <PrivateRoute path="/manageAllOrders">
+              <ManageAllOrders></ManageAllOrders>
+            </PrivateRoute>
+            <PrivateRoute path="/myOrders/:email&&:name">
+              <MyOrders></MyOrders>
+            </PrivateRoute>
+            <PrivateRoute path="/addService">
               <AddServices></AddServices>
-            </Route>
+            </PrivateRoute>
             <Route path="/register">
               <Register></Register>
             </Route>

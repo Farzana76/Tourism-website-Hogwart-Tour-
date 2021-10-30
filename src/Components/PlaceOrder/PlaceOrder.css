@@ -1,0 +1,12 @@
+.add-detail form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.add-detail form input, textarea{
+    width: 90%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
