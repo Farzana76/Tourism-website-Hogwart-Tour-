@@ -1,13 +1,24 @@
+import axios from 'axios';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import './AddService.css';
 
 const AddServices = () => {
-    const { register, formState: { errors }, handleSubmit } = useForm();
-    const onSubmit = data => console.log(data);
+    const { register, formState: { errors }, handleSubmit, reset } = useForm();
+    const onSubmit = data => {
+        console.log(data);
+        axios.post('http://localhost:5000/services', data)
+            .then(res => {
+                if (res.data.insertedId) {
+                    alert('added successfully');
+                    reset();
+                }
+            })
+    }
+
     return (
         <div className="w-50 m-auto p-3 mt-3 border rounded mb-3 add-service">
-            <h1 className="text-secondary mb-3 heading">Please Register</h1>
+            <h1 className="text-secondary mb-3 heading">Please add a service</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <input {...register("title", { required: true })} placeholder="Title" />
                 {errors.title?.type === 'required' && "Title is required"}
@@ -17,6 +28,9 @@ const AddServices = () => {
 
                 <input {...register("img", { required: true })} placeholder="Image URL"/>
                 {errors.img?.type === 'required' && "Image is required"}
+
+                <input {...register("date", { required: true })} placeholder="Available dates"/>
+                {errors.date?.type === 'required' && "Date is required"}
                 
                 <textarea {...register("desc", { required: true })} placeholder="Description"/>
                 {errors.desc && "Description is required"}

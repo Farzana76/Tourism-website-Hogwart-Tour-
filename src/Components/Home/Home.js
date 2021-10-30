@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { Row } from 'react-bootstrap';
 import Header from '../Header/Header';
+import Service from '../Service/Service';
 import './Home.css';
 
 const Home = () => {
-    // const [services, setServices] = useState([]);
+    const [services, setServices] = useState([]);
     // const [coaches, setCoaches] = useState([]);
 
-    // // loading service data
-    // useEffect(() => {
-    //     fetch('./data.json')
-    //     .then(res => res.json())
-    //     .then(data => setServices(data))
-    // }, [])
+    // loading service data
+    useEffect(() => {
+        fetch('http://localhost:5000/services')
+        .then(res => res.json())
+        .then(data => setServices(data))
+    }, [])
 
     // // loading coach data
     // useEffect(() => {
@@ -24,19 +25,19 @@ const Home = () => {
     return (
         <div className="home">
             <Header></Header>
-            {/* passing data of services
+            {/* passing data of services */}
             <div className="services2">
                     <h1 className="heading mt-3">Our Services</h1>
-                <Row xs={1} md={2} lg={2} className="g-4 ps-5 pe-5 mb-5 pt-3">
+                <Row xs={1} md={2} lg={3} className="g-4 ps-5 pe-5 mb-5 pt-3">
                     {
-                        services.slice(0, 6).map(service => <Service 
+                        services.map(service => <Service
                             key = {service.id}
                             service={service}
                             ></Service>)
                     }
                 </Row> 
             </div>
-            <div className="services2">
+            {/* <div className="services2">
                     <h1 className="heading mt-3">Our Coaches</h1>
                 <Row xs={1} md={2} lg={4} className="g-4 ps-5 pe-5 mb-5 pt-3">
                     {

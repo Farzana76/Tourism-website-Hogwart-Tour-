@@ -1,0 +1,12 @@
+.overlay{
+    background-color: rgba(0, 0, 0, 0.432);
+    font-family: 'Glass Antiqua', cursive;
+    box-shadow: 5px 5px 20px rgb(0, 0, 0);
+}
+.service{
+    height: auto;
+    transition: transform .3s;
+}
+.service:hover{
+    transform: scale(0.95);
+}
