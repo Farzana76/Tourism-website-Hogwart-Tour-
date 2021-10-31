@@ -28,11 +28,11 @@ const Menu = () => {
                     <NavLink to="/home" className="items">
                     <li>Home</li>
                     </NavLink>
-                    <NavLink to="/coachdetail" className="items">
-                    <li>Coaches</li>
+                    <NavLink to="/events" className="items">
+                    <li>Events</li>
                     </NavLink>
-                    <NavLink to="/recipes" className="items">
-                    <li>Diet Recipes</li>
+                    <NavLink to="/deals" className="items">
+                    <li>Deals</li>
                     </NavLink>
                     {user.email ? 
                         <span className="item1 text-muted">Logged in {user.displayName} </span>

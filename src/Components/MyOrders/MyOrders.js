@@ -35,7 +35,7 @@ const MyOrders = () => {
         <div>
             <h1 className="display-5 heading mt-3">{name}'s Dashboard</h1>
             <div className="mx-5 mb-5 d-flex justify-content-center">
-                <Table striped bordered hover variant="dark" className="mx-5">
+                <Table striped bordered hover variant="dark" responsive>
                     <thead>
                         <tr>
                         <th>Order Id</th>

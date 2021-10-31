@@ -52,7 +52,7 @@ const ManageAllOrders = () => {
         <div>
             <h1 className="display-5 heading mt-3">All Orders</h1>
             <div className="mx-5 mb-5 d-flex justify-content-center">
-                <Table striped bordered hover variant="dark" className="mx-5">
+                <Table striped bordered hover variant="dark" responsive>
                     <thead>
                         <tr>
                         <th>Order Id</th>
@@ -62,7 +62,7 @@ const ManageAllOrders = () => {
                         <th>Client's Address</th>
                         <th>Client's City</th>
                         <th>Event Name</th>
-                        <th>Status</th>
+                        {/* <th>Status</th> */}
                         <th>Approval</th>
                         <th>Delete Order</th>
                         </tr>
@@ -77,10 +77,10 @@ const ManageAllOrders = () => {
                                     <td>{o.address}</td>
                                     <td>{o.city}</td>
                                     <td>{o.event}</td>
-                                    <td>{o.status}</td>
+                                    {/* <td>{o.status}</td> */}
                                     <td>{
                                         o.status === 'Approved' ?
-                                        <button className="btn btn-secondary" disabled>Approve</button>
+                                        <button className="btn btn-secondary" disabled>Approved</button>
                                         :
                                         <button onClick={() => handleUpdateUser(o._id)} className="btn btn-primary">Approve</button>}</td>
                                     <td><button onClick={() => handleDeleteUser(o._id)} className="btn btn-danger">Delete</button></td>

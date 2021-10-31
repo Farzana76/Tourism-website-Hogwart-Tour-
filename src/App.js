@@ -12,6 +12,8 @@ import PrivateRoute from './Components/PrivateRoute/PrivateRoute.js';
 import AddServices from './Components/AddServices/AddServices';
 import MyOrders from './Components/MyOrders/MyOrders';
 import ManageAllOrders from './Components/ManageAllOrders/ManageAllOrders';
+import Events from './Components/Events/Events';
+import Deals from './Components/Deals/Deals';
 // import Coaches from './Components/Coaches/Coaches';
 // import Recipes from './Components/Recipes/Recipes';
 
@@ -31,15 +33,12 @@ function App() {
             <PrivateRoute path="/service/:sid&&:title">
               <PlaceOrder></PlaceOrder>
             </PrivateRoute>
-            {/* <PrivateRoute path="/service/:sid">
-              <ServiceDetail></ServiceDetail>
+            <PrivateRoute path="/events">
+              <Events></Events>
             </PrivateRoute>
-            <PrivateRoute path="/coachdetail">
-              <Coaches></Coaches>
+            <PrivateRoute path="/deals">
+              <Deals></Deals>
             </PrivateRoute>
-            <PrivateRoute path="/recipes">
-              <Recipes></Recipes>
-            </PrivateRoute> */}
             <PrivateRoute path="/manageAllOrders">
               <ManageAllOrders></ManageAllOrders>
             </PrivateRoute>
