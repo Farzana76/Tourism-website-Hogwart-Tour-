@@ -1,6 +1,6 @@
 # Hogwarts World Tour
 
-Live site link[Hogwart Tour](https://hogwart-world.web.app/home).
+Live site link [Hogwart Tour](https://hogwart-world.web.app/home).
 
 ## Project highlights
 
