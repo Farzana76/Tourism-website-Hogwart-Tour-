@@ -7,7 +7,7 @@ const AddServices = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         console.log(data);
-        axios.post('http://localhost:5000/services', data)
+        axios.post('https://dry-fjord-84495.herokuapp.com/services', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('added successfully');
